@@ -9,4 +9,4 @@
 3. grid.
 4. React.
 
-## [Ссылка на проект  GitHub](https://dmitriymovchan.github.io/movies-explorer-frontend/)
+## [Ссылка на проект бэкенда GitHub](https://api.movies.movchan.nomoredomains.xyz)
