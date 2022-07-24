@@ -1,0 +1,143 @@
+.footer {
+    max-width: 1140px;
+    background-color: #FFFFFF;
+    padding: 0 70px 0 70px;
+    margin: 0 auto 0;
+}
+
+.footer__description {
+    text-align: center;
+    margin: 79px auto 20px;
+    max-height: 16px;
+    max-width: 480px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: auto;
+    color: #A0A0A0;
+}
+
+.footer__line {
+    border-bottom: 1px solid #E8E8E8;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    margin: 0px auto 20px;
+}
+
+.footer__block {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto 20px;
+}
+
+.footer__block_year {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.footer__block_nav {
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 13px;
+    line-height: auto;
+    display: flex;
+    column-gap: 20px;
+}
+
+.footer__block_nav-link {
+    cursor: pointer;
+    text-decoration: none;
+    height: 16px;
+    color: #000000;
+    font-family: 'Inter';
+    font-style: normal;
+    font-size: 13px;
+    line-height: auto;
+}
+
+.footer__block_nav-link:hover {
+    opacity: .8;
+}
+
+@media screen and (max-width: 1139px) {
+    .footer {
+        background-color: #FFFFFF;
+        padding: 0 30px 0 30px;
+        margin: 0 auto 0;
+    }
+
+    .footer__description {
+        max-height: 16px;
+        max-width: 320px;
+    }
+
+    .footer__block {
+        font-family: 'Inter';
+        font-style: normal;
+        font-size: 13px;
+        line-height: auto;
+        margin: 0 auto 20px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footer {
+        padding: 0 10px 0 10px;
+    }
+
+    .footer__description {
+        margin: 79px auto 21px;
+        max-height: 15px;
+        max-width: 300px;
+        font-size: 12px;
+        line-height: auto;
+    }
+
+    .footer__line {
+        margin: 0px auto 30px;
+    }
+
+    .footer__block {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 0 auto 10px;
+    }
+
+    .footer__block_year {
+        font-size: 12px;
+        order: 2;
+        color: #A0A0A0;
+        text-align: center;
+    }
+    
+    .footer__block_nav {
+        font-size: 12px;
+        line-height: auto;
+        flex-direction: column;
+        column-gap: 12px;
+        align-items: center;
+        margin: 0 0 30px 0;
+        row-gap: 12px;
+
+    }
+    
+    .footer__block_nav-link {
+        cursor: pointer;
+        text-decoration: none;
+        height: 16px;
+        color: #000000;
+        font-family: 'Inter';
+        font-style: normal;
+        font-size: 13px;
+        line-height: auto;
+    }
+}
