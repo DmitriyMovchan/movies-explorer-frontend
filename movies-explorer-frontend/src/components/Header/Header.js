@@ -2,10 +2,8 @@ import React from "react";
 import "./Header.css";
 import logoMain from "../../images/logo.svg";
 import logoMovies from "../../images/logo-2.svg";
-import logoProfile from "../../images/logo-profile.svg";
 import { Route } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
-import { Link } from "react-router-dom";
 
 function Header({ email }) {
   return (
@@ -27,7 +25,7 @@ function Header({ email }) {
           <div className="header__main header__main_movies">
             <Route path={[ "/movies", "/saved-movies" ]}>
             <a href="/">
-              <img className="header__logo header__logo_movies" src={logoMovies} alt="логотип"></img></a>
+              <img className="header__logo header__logo_movies" src={logoMain} alt="логотип"></img></a>
             </Route>
             <Route path="/profile">
               <img className="header__logo header__logo_profile" src={logoMovies} alt="логотип"></img>

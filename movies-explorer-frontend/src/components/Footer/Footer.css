@@ -1,8 +1,12 @@
 .footer {
-    max-width: 1140px;
-    background-color: #FFFFFF;
-    padding: 0 70px 0 70px;
+    max-width: 1280px;
+    width: 100%;
+    background-color: #FAFAFA;
     margin: 0 auto 0;
+}
+
+.footer__cover {
+    padding: 0 70px 0 70px;
 }
 
 .footer__description {
@@ -70,8 +74,11 @@
 @media screen and (max-width: 1139px) {
     .footer {
         background-color: #FFFFFF;
-        padding: 0 30px 0 30px;
         margin: 0 auto 0;
+    }
+
+    .footer__cover {
+        padding: 0 30px 0 30px;
     }
 
     .footer__description {
@@ -89,7 +96,7 @@
 }
 
 @media screen and (max-width: 767px) {
-    .footer {
+    .footer__cover {
         padding: 0 10px 0 10px;
     }
 

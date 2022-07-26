@@ -3,50 +3,14 @@ import "./MoviesCardList.css";
 import MoviesCard from "../MoviesCard/MoviesCard";
 import logo from "../../images/card.svg"
 
-function MoviesCardList() {
+function MoviesCardList({cards}) {
     return (
         <section className="card-list">
             <div className="card-list__grid">
-            <MoviesCard 
-                card={logo}
-                text={'здесь будет название'}
-                time={'1ч42м'}
-            />
-            <MoviesCard 
-                card={logo}
-                text={'здесь будет название'}
-                time={'1ч42м'}
-            />
-            <MoviesCard 
-                card={logo}
-                text={'здесь будет название'}
-                time={'1ч42м'}
-            />
-            <MoviesCard 
-                card={logo}
-                text={'здесь будет название'}
-                time={'1ч42м'}
-            />
-            <MoviesCard 
-                card={logo}
-                text={'здесь будет название'}
-                time={'1ч42м'}
-            />
-            <MoviesCard 
-                card={logo}
-                text={'здесь будет название'}
-                time={'1ч42м'}
-            />
-            <MoviesCard 
-                card={logo}
-                text={'здесь будет название'}
-                time={'1ч42м'}
-            />
-            <MoviesCard 
-                card={logo}
-                text={'здесь будет название'}
-                time={'1ч42м'}
-            />
+
+            {cards.map((card) => (
+                    <MoviesCard key={card.id} card={card}/>
+                ))}
             </div>
         <button className="card-list__more">Еще</button>
         </section>

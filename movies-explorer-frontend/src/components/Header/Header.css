@@ -1,5 +1,8 @@
 .header {
     width: 100%;
+    max-width: 1280px;
+    display: flex;
+    margin: 0 auto 0;
 }
 
 .header__main {
@@ -9,7 +12,6 @@
     min-height: 74px;
     box-sizing: border-box;
     justify-content: space-between;
-    background-color: #073042;
 }
 
 .header__logo {
@@ -17,7 +19,7 @@
     height: 38px;
     background-size: contain;
     padding: 0px;
-    margin: 18px 60px;
+    margin: 18px 70px;
     cursor: pointer;
 }
 
@@ -35,10 +37,10 @@
 }
 
 .header__menu-block_register {
-    color: #FFFFFF;
+    color: black;
     font-family: 'Inter';
     font-weight: 500;
-    font-size: 18px;
+    font-size: 12px;
     line-height: 16px;
     margin: auto 0;
     text-decoration: none;
@@ -52,14 +54,14 @@
     color: #000000;
     font-family: 'Inter';
     font-weight: 500;
-    font-size: 18px;
+    font-size: 12px;
     line-height: 16px;
     margin-left: 24px;
     background-color: #2BE080;
     border: none;
     height: 32px;
     min-width: 76px;
-    border-radius: 3%;
+    border-radius: 3px;
     text-decoration: none;
     text-align: center;
     display: flex;
@@ -71,17 +73,19 @@
     opacity: .8;
 }
 
-.header__main_movies {
+.header__main_movies { 
     background-color: #FFFFFF;
     max-width: 1280px;
     padding: 0 70px 0 70px;
     margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
 }
 
 @media screen and (max-width: 1139px) {
     .header__menu-block {
         display: flex;
-        margin: 15px 30px 15px 0px;
+        margin: 21px 30px 21px 0px;
         visibility: visible;
     }
 
@@ -94,19 +98,16 @@
         margin-left: 30px;
         font-size: 12px;
         line-height: 16px;
-        height: 26px;
-        min-width: 54px;
+        height: 32px;
+        min-width: 76px;
     }
 
     .header__logo {
-        background-image: url('../../images/logo-2.svg');
-        width: 38px;
-        height: 38px;
-        background-size: contain;
+        margin: 18px 0 18px 30px;
     }
 
     .header__logo_movies {
-        background-image: url('../../images/logo-movies767.svg');
+        /* background-image: url('../../images/logo-movies767.svg'); */
         margin: 18px 0 18px 30px;
     }
 
@@ -124,10 +125,6 @@
 }
 
 @media screen and (max-width: 767px) {
-    .header__menu-block {
-        margin: 24px 14px 24px 0px;
-    }
-
     .header__menu-block_register {
         font-size: 10px;
         line-height: 16px;
@@ -140,9 +137,6 @@
     }
 
     .header__logo {
-        width: 38px;
-        height: 38px;
-        background-size: contain;
         margin: 18px 0 18px 14px;
     }
 

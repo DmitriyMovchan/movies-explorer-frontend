@@ -1,28 +1,36 @@
 .menu {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .menu__toggle {
     opacity: 0;
+    display: none;
+    position: absolute;
 }
 
 .box {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 .box__cover {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .box__nav {
     display: flex;
     flex-direction: row;
     list-style: none;
-    margin: 18px 0;
+    margin: 0 0 0 44px;
     align-items: center;
+    padding-inline-start: 0;
 }
 
 .box__nav_item {
@@ -44,37 +52,34 @@
 }
 
 .menu__item_save-movies {
-    margin: 0 50px 0 20px;
-}
-
-.menu__item_img {
-    background-image: url('../../images/account-icon.svg');
-    width: 11.5px;
-    height: 14px;
-    background-repeat: no-repeat;
-    padding: 8px 7.25px;
-    background-color: #F5F5F5;
-    background-position: center;
-    border-radius: 4px;
+    margin: 0 50px 0 16px;
 }
 
 .box__button {
     display: flex;
     flex-direction: row;
     border: none;
-    background-color: #fff;
+    background-color: #F9F9F9;
     margin: 18px 0;
     padding: 0;
     align-items: center;
+    border-radius: 20px;
+    width: 100px;
+    height: 32px;
+    justify-content: center;
 }
 
 .menu__item_profile {
-    margin: 0 17px 0 0;
+    margin: 0;
     font-family: 'Inter';
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
-    
+}
+
+.menu__btn {
+    display: none;
+    position: absolute;
 }
 
 @media screen and (max-width: 1139px) {
@@ -91,13 +96,13 @@
 .menu__btn {
     display: flex;
     align-items: center;
-    position: relative;
     width: 28px;
     height: 28px;
     cursor: pointer;
     z-index: 6;
     margin: 0 30px 18px 0;
-    float: right;
+    right: 0;
+    top: 26px;
 }
 
 .menu__btn:hover {
@@ -125,12 +130,8 @@
 }
 
 .box {
-    display: flex;
-    flex-direction: column;
-    align-items: space-between;
     position: fixed;
     visibility: hidden;
-    top: 0;
     width: 100%;
     text-align: center;
     background-color:  rgba(0, 0, 0, .4);
@@ -138,6 +139,9 @@
     right: 0;
     min-height: 100%;
     left: 0;
+    margin: 0;
+    padding: 0;
+    bottom: 0;
 }
 
 .box__nav {
@@ -223,7 +227,6 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 #menu__toggle:checked ~ .menu__btn > span {
@@ -241,9 +244,6 @@
     visibility: visible;    
 }
 
-.menu__item_img {
-    display: none;
-}
 }
 
 @media screen and (max-width: 767px) {
@@ -257,5 +257,6 @@
 
     .menu__btn {
         margin: 0 14px 18px 0;
+        top: 19.5px;
     }
 }

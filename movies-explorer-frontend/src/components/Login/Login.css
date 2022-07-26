@@ -59,7 +59,7 @@
 
 .form__submit {
     min-height: 45px;
-    background-color: #3456F3;
+    background-color: #2BE080;
     font-family: 'Inter';
     font-style: normal;
     font-size: 14px;
@@ -93,7 +93,7 @@
     font-style: normal;
     font-size: 14px;
     line-height: auto;
-    color: #3456F3;
+    color: #2BE080;
     text-decoration: none;
 }
 
@@ -113,16 +113,6 @@
     }
 
     .form__submit {
-        min-height: 45px;
-        background-color: #3456F3;
-        font-family: 'Inter';
-        font-style: normal;
-        font-size: 14px;
-        line-height: auto;
-        color: #FFFFFF;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
         margin: 157px 0 0 0;
     }
 
@@ -132,5 +122,9 @@
     
     .form__text_link {
         font-size: 12px;
+    }
+
+    .form__item:last-of-type {
+        margin: 0 0 65px 0;
     }
 }

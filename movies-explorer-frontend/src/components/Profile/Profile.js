@@ -12,7 +12,7 @@ function Profile() {
                 <p className="profile__text">Имя</p>
                 <input className="profile__name" value="Виталий" type="text" id="input__name"></input>
                 <p className="profile__text">E-mail</p>
-                <input className="profile__email" value="pochta@yandex.ru" type="text" id="input__name"></input>
+                <input className="profile__email" value="pochta@yandex.ru" type="text" id="input__email"></input>
             </div>
             <p className="profile__edit">Редактировать</p>
             <p className="profile__exit">Выйти из аккаунта</p>

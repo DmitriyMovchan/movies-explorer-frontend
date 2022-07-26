@@ -9,19 +9,18 @@ function Navigation() {
                     <span></span>
             </label>
 
-        <div className='box'>
-            <div className='box__cover'>
-                <ul class="box__nav">
-                    <li><a className="box__nav_item menu__item_home" href="/">Главная</a></li>
-                    <li><a className="box__nav_item menu__item_movies" href="/movies">Фильмы</a></li>
-                    <li><a className="box__nav_item menu__item_save-movies" href="/saved-movies">Сохраненные фильмы</a></li>
-                </ul>
-                <button className='box__button'>
-                    <a className="box__nav_item menu__item_profile" href="/profile">аккаунт</a>
-                    <a className='box__nav_item menu__item_img' href="/profile"></a>
-                </button>
+            <div className='box'>
+                <div className='box__cover'>
+                    <ul class="box__nav">
+                        <li><a className="box__nav_item menu__item_home" href="/">Главная</a></li>
+                        <li><a className="box__nav_item menu__item_movies" href="/movies">Фильмы</a></li>
+                        <li><a className="box__nav_item menu__item_save-movies" href="/saved-movies">Сохраненные фильмы</a></li>
+                    </ul>
+                    <button className='box__button'> 
+                        <a className="box__nav_item menu__item_profile" href="/profile">аккаунт</a>
+                    </button>
+                </div>
             </div>
-        </div>
         </div>
     )
 }

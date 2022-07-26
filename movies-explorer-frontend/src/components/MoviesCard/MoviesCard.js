@@ -1,16 +1,31 @@
 import React from "react";
 import "./MoviesCard.css";
+import {useLocation} from 'react-router-dom';
 
-function MoviesCard({ card, text, time }) {
+function MoviesCard({ card }) {
+
+    const location = useLocation();
+    const [isSaved, setIsSaved] = React.useState(false);
+
+    function handleSave() {
+        setIsSaved(!isSaved);
+    }
+
     return (
         <section className="card">
-            <img className="card__img" src={card} alt="картинка"></img>
             <div className="card__description">
-                <p className="card__description_text">{text}</p>
-                <button className="card__description_like" type="submit"></button>
+                <div className="card__info">
+                    <p className="card__info_text">{card.name}</p>
+                    <p className="card__info_time">{card.time}</p>
+                </div>
+                {location.pathname === "/saved-movies" && 
+                    <button className="card__description_like_delete" onClick={handleSave} type="submit"></button>}
+                {location.pathname === "/movies" &&
+                    <button className={isSaved ? "card__description_like" : "card__description_like_green"} onClick={handleSave} type="submit"></button>
+                }
+
             </div>
-            <div className="card__line"></div>
-            <p className="card__time">{time}</p>
+            <img className="card__img" src={card.image} alt="картинка"></img>
         </section>
     )
 }
