@@ -1,0 +1,150 @@
+.header {
+    width: 100%;
+    max-width: 1280px;
+    display: flex;
+    margin: 0 auto 0;
+}
+
+.header__main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 74px;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.header__logo {
+    width: 38px;
+    height: 38px;
+    background-size: contain;
+    padding: 0px;
+    margin: 18px 70px;
+    cursor: pointer;
+}
+
+.header__logo:hover {
+    opacity: .8;
+}
+
+.header__logo_movies {
+    margin: 18px 0;
+}
+
+.header__menu-block {
+    display: flex;
+    margin: 18px 70px 0px 0px;
+}
+
+.header__menu-block_register {
+    color: black;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin: auto 0;
+    text-decoration: none;
+}
+
+.header__menu-block_register:hover {
+    opacity: .8;
+}
+
+.header__menu-block_in {
+    color: #000000;
+    font-family: 'Inter';
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    margin-left: 24px;
+    background-color: #2BE080;
+    border: none;
+    height: 32px;
+    min-width: 76px;
+    border-radius: 3px;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__menu-block_in:hover {
+    opacity: .8;
+}
+
+.header__main_movies { 
+    background-color: #FFFFFF;
+    max-width: 1280px;
+    padding: 0 70px 0 70px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+}
+
+@media screen and (max-width: 1139px) {
+    .header__menu-block {
+        display: flex;
+        margin: 21px 30px 21px 0px;
+        visibility: visible;
+    }
+
+    .header__menu-block_register {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .header__menu-block_in {
+        margin-left: 30px;
+        font-size: 12px;
+        line-height: 16px;
+        height: 32px;
+        min-width: 76px;
+    }
+
+    .header__logo {
+        margin: 18px 0 18px 30px;
+    }
+
+    .header__logo_movies {
+        /* background-image: url('../../images/logo-movies767.svg'); */
+        margin: 18px 0 18px 30px;
+    }
+
+    .header__main_movies {
+        max-width: 1280px;
+        height: 74px;
+        padding: 0;
+    }
+
+    .header__logo_profile {
+        background-image: url('../../images/logo-profile.svg');
+        margin: 20px 0 20px 32px;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .header__menu-block_register {
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .header__menu-block_in {
+        margin-left: 14px;
+        font-size: 10px;
+        line-height: 16px;
+    }
+
+    .header__logo {
+        margin: 18px 0 18px 14px;
+    }
+
+    .header__menu-block {
+        margin: 24px 14px 0px 0px;
+    }
+}
+
+
+
+
