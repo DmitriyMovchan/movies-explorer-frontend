@@ -17,7 +17,7 @@ function Navigation() {
                         <li><a className="box__nav_item menu__item_save-movies" href="/saved-movies">Сохраненные фильмы</a></li>
                     </ul>
                     <button className='box__button'> 
-                        <a className="box__nav_item menu__item_profile" href="/profile">аккаунт</a>
+                        <a className="box__nav_item menu__item_profile" href="/profile">Аккаунт</a>
                     </button>
                 </div>
             </div>

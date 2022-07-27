@@ -13,6 +13,15 @@
     border-radius: 9px;
 }
 
+.search-form__flex:focus {
+    border-bottom: 1px solid #2BE080;
+}
+
+.search-form__search_cover {
+    display: flex;
+    width: 100%;
+}
+
 .search-form__search {
     display: flex;
     padding: 0;
@@ -38,8 +47,13 @@
     margin: 0 0 0 22px;
     border: none;
     outline: none;
-    width: calc(100% - 34px);
     background-color: #F9F9F9;
+    width: 100%;
+}
+
+.search-form__search_input:focus {
+    border-radius: 10px;
+    outline: 1px solid #2BE080;
 }
 
 .search-form__search_img {
@@ -157,6 +171,7 @@
     }
 
     .search-form__search {
+        
     }
 
     .short-films {
@@ -197,6 +212,10 @@
         column-gap: 30px;
         background-color: #fff;
         border-radius: 9px;
+    }
+
+    .search-form__line {
+        width: calc(100% - 28px);
     }
 
     .search-form__search {

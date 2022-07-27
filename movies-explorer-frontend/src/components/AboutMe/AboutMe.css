@@ -192,6 +192,10 @@
         font-size: 28px;
     }
 
+    .about-me__links_line {
+        margin: 19px 50px 20px 50px;
+    }
+
     .about-me__links_img {
         width: 27px;
         height: 27px;
@@ -271,6 +275,10 @@
     .about-me__links_text {
         font-size: 18px;
         line-height: 28px;
+    }
+
+    .about-me__links_line {
+        margin: 19px 14px 20px 14px;
     }
     
     .about-me__links_img {

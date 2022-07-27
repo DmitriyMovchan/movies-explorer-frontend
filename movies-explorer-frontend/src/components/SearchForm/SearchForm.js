@@ -5,10 +5,12 @@ import Preloader from "../Preloader/Preloader"
 function SearchForm() {
     return (
         <section className="search-form">
-            <div className="search-form__flex">
+            <form className="search-form__flex">
                 <div className="search-form__search">
-                    <div className="search-form__search_magnifying-glass"></div>
-                    <input className="search-form__search_input" type="text" placeholder="Фильм"></input>
+                    <div className="search-form__search_cover">
+                        <div className="search-form__search_magnifying-glass"></div>
+                        <input className="search-form__search_input" type="text" placeholder="Фильм" required></input>
+                    </div>
                     <button className="search-form__search_img"></button>
                 </div>
                 <div className="short-films">
@@ -18,7 +20,7 @@ function SearchForm() {
                     </label>
                     <p className="short-films__text">Короткометражки</p>
                 </div>
-            </div>
+            </form>
             <div className="search-form__line"></div>
         </section>
     )
