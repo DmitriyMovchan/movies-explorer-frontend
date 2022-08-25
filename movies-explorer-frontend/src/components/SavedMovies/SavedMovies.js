@@ -16,15 +16,14 @@ function SavedMovies(props) {
                 findedMovies={props.findedMovies}
                 setFindMovies={props.setFindMovies}
                 onLoadingStatusChange={props.onLoadingStatusChange}
-
                 setErrorMovies={setErrorMovies}
                 setErrorMoviesText={setErrorMoviesText}
             />
             <MoviesCardList cards={props.cards} 
-            deleteMovieCard={props.deleteMovieCard} 
-            savedMovies={props.savedMovies} 
-            isLoading={props.isLoading}
-            errorMovies={errorMovies}
+                deleteMovieCard={props.deleteMovieCard} 
+                savedMovies={props.savedMovies} 
+                isLoading={props.isLoading}
+                errorMovies={errorMovies}
                 errorMoviesText={errorMoviesText}
             />
         </>

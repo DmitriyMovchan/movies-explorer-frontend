@@ -40,15 +40,6 @@ function Login(props) {
         props.handleLogin(email, password);
     }
 
-
-    // когда напишется loggedIn в App
-    // React.useEffect(() => {
-    //     if (props.loggedIn) {
-    //         setEmail('')
-    //         setPassword('')
-    //     }
-    // }, [props.loggedIn])
-
     React.useEffect(() => {
         if (email && password && !emailError && !passwordError) {
             setFormValid(true)

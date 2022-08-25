@@ -9,10 +9,7 @@ import { useLocation } from 'react-router-dom';
 
 function MoviesCardList(props) {
     const location = useLocation();
-  
-    // const [isLoading, setIsLoading] = React.useState();
     const width = useCurrentWidth();
-
     const getLoadStepMovies = (width) => {
         if (width >= 1280) {
             return 4;
@@ -31,7 +28,6 @@ function MoviesCardList(props) {
     }
 
     const [visibleMovies, setVisibleMovies] = React.useState(getInitialCounts(width));
-
 
     // ф-я показать еще фильмы
     const handleLoadMore = () => {
@@ -57,14 +53,11 @@ function MoviesCardList(props) {
                 {location.pathname === '/saved-movies' && props.cards.map((card) => 
                     <MoviesCard key={card.moviedId} card={card} saveMovies={props.saveMovies} deleteMovieCard={props.deleteMovieCard} />
                 )
-                }
-                
+                } 
                 </>)
-                
                  : <div className="cards-list__text">Ничего не найдено</div>
             }
              {}
-                
             </div>
             {location.pathname === '/movies' && visibleMovies < props.cards.length && (<button className="card-list__more" onClick={handleLoadMore}>Еще</button>)}
         </section>

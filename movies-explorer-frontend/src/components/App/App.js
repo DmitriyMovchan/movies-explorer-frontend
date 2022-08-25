@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useHistory, useLocation, Redirect } from 'react-router-dom';
+import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
 import './App.css';
 import Main from "../Main/Main";
 import Movies from '../Movies/Movies';
@@ -8,13 +8,10 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Profile from "../Profile/Profile";
 import PageNotFound from "../PageNotFound/PageNotFound";
-import Navigation from '../Navigation/Navigation';
-import apiMovies from '../../utils/MoviesApi';
 import Preloader from '../Preloader/Preloader';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import { saveMovie, getSavedMovies, deleteMovies, authorize, register, getContent } from '../../utils/MainApi'; 
 
 function App() {
@@ -22,14 +19,12 @@ function App() {
     const [movies, setMovies] = React.useState([]);
     // фильмы из моего апи
     const [savedMovies, setSavedMovies] = React.useState([]);
-    const [notification, setNotification] = React.useState(false);
     const [loggedIn, setLoggedIn] = React.useState(false);
     const [isCheckingToken, setIsCheckinToken] = React.useState(true);
     const [isCardsLoaning, setIsCardsLoading] = React.useState(false);
     const [currentUser, setCurrentUser] = React.useState({});
     const [errLog, setErrLog] = React.useState(false);
     const [textErrLog, setTextErrLog] = React.useState("");
-    const [checkShorts, setCheckShorts] = React.useState(JSON.parse(localStorage.getItem('checkbox')) || false);
     const [checkbox, setCheckbox] = React.useState(false);
     const [findedMovies, setFindMovies] = React.useState("");
     console.log(findedMovies)
@@ -41,11 +36,8 @@ function App() {
     const handleCheckbox = (value) => {
         setCheckbox(value);
     }
-  
-   // eslint-disable-next-line no-use-before-define
     
     const history = useHistory();
-    const location = useLocation();
 
     React.useEffect(() => {
         checkToken();
@@ -56,7 +48,6 @@ function App() {
         .then((res) => {
             if (res) {
                 handleLogin(email, password)
-                //history.push('/movies')
             }
         })
         .catch((err) => {
@@ -89,25 +80,11 @@ function App() {
             .catch((err) => console.log(err))
     }
 
-    // запрос к фильмам
-    // console.log(movies)
-    // const fetchMovies = () => {
-    //     apiMovies.getMovies()
-    //     .then((res) => {
-    //         console.log(res);
-    //         setMovies(res);
-    //         localStorage.setItem('movies', JSON.stringify(res));
-    //     });
-    // }
-
-
     // эффект отображени фильмов
     React.useEffect(() => {
         const localMovies = localStorage.getItem('movies');
         if (localMovies) {
             try {
-                // let filterData = JSON.parse(localMovies).filter(({ nameRU }) => nameRU.toLowerCase().includes(findedMovies.toLowerCase()));
-                // setMovies(filterData);
                 setMovies(JSON.parse(localMovies));
             } catch (err) {
                 localStorage.removeItem('movies');
@@ -127,13 +104,6 @@ function App() {
     const onFetchMovies = (movies) => {
         setMovies(movies);
     }
-
-    /*React.useEffect(() => {
-        if (loggedIn) {
-            console.debug('push /')
-            history.push('/');
-        }
-    }, [loggedIn])*/
     
 // проверка токена
     const checkToken = () => {
@@ -155,9 +125,6 @@ function App() {
             setIsCheckinToken(false);
         }
     }
-
-  
-
 
     // сохранение фильмов
     const saveMovies = (movie) => {
@@ -195,7 +162,6 @@ function App() {
     }
 
     // ф-я получения контекста юзера
-
     function handleEditProfile (name, email) {
         getContent(name, email)
         .then((res) => {
@@ -211,22 +177,6 @@ function App() {
         })
         }
 
-       // ф-я фильтрации короткометражек
-    /*function movieFilterCheckbox() {
-        localStorage.setItem('movieFilterCheckbox', JSON.stringify(savedMovies.filter((movie) => {
-            return movie.nameRU.toLowerCase().includes(savedMovies.toLowerCase()) && (checkShorts ? movie.duration <= 40 : movie.duration > 40)})));
-            return JSON.parse(localStorage.getItem('movieFilterCheckbox'))
-   }*/
-
-   // ф-я отображения короткометражек
-  /* function showShortMovies() {
-       setCheckShorts(!checkShorts)
-       movieFilterCheckbox()
-       localStorage.setItem('filmSearch', );
-   }*/
-   console.log(currentUser)
-
-
    function myFilterFn(card) {
     let res = true;
     if (checkbox) res = res && card.duration <= 40;
@@ -234,9 +184,7 @@ function App() {
     return res;
    }
     const filteredMovies = movies.filter(x => myFilterFn(x));
-   const  filteredSavedMovies = savedMovies.filter(x => myFilterFn(x));
-   
-    // сохранение фильмов по лайку
+    const  filteredSavedMovies = savedMovies.filter(x => myFilterFn(x));
 
     return (
         <CurrentUserContext.Provider value={currentUser}>

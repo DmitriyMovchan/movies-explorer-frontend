@@ -5,7 +5,6 @@ import Footer from '../Footer/Footer';
 
 const ProtectedRoute = ({ loggedIn, children, path, exact }) => {
   const location = useLocation();
-  // console.debug('loggedIn = ', loggedIn);
   return (
       <Route exact={exact} path={path}>
         <Header 

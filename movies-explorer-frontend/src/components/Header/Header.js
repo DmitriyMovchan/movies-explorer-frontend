@@ -1,7 +1,6 @@
 import React from "react";
 import "./Header.css";
 import logoMain from "../../images/logo.svg";
-import logoMovies from "../../images/logo-2.svg";
 import { Route } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 
@@ -13,13 +12,7 @@ function Header({ email, loggedIn }) {
               <Route path={[ "/movies", "/saved-movies", "/profile", "/"]}>
               <div className="header__main header__main_movies">
               <a href="/">
-                <img className="header__logo header__logo_movies" src={logoMain} alt="логотип" href="/"></img></a>
-              {//<Route path={[ "/movies", "/saved-movies" ]}>
-               // <a href="/">
-               //   <img className="header__logo header__logo_movies" src={logoMain} alt="логотип"></img></a>
-               // </Route>
-              }
-              
+                <img className="header__logo header__logo_movies" src={logoMain} alt="логотип" href="/"></img></a>              
                   <Navigation />
                   </div>
             </Route>

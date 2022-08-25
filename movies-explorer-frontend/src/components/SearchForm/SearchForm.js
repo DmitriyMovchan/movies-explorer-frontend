@@ -1,10 +1,8 @@
-import React, { useCallback } from "react";
+import React from "react";
 import "./SearchForm.css";
-import Preloader from "../Preloader/Preloader";
 import apiMovies from "../../utils/MoviesApi";
 
 function SearchForm(props) {
-    // const [findedMovies, setFindMovies] = React.useState("");
     const [error, setError] = React.useState("");
     const [formValid, setFormValid] = React.useState(false);
     const [submitting, setSubmitting] = React.useState(false);
@@ -27,39 +25,40 @@ function SearchForm(props) {
         }   
     }
 
-    function handleSearchMovie(e) {
-        props.setFindMovies(e.target.value);
-        validate(e.target.value)
-    }
-
     function handleSubmit(e) {
         e.preventDefault();
-        // console.log('submit 0');
         if (!validate(inputText)) {
             return;
         }
         setError("");
+        props.setErrorMovies(false);
         setSubmitting(true);
         props.onLoadingStatusChange(true);
-        // apiMovies.getMovies(findedMovies).filter(({ nameRU }) => nameRU.toLowerCase().includes(findedMovies.toLowerCase()))
+        if (props.onFetchMovies) {
         apiMovies.getMovies(inputText)
         .then((res) => {
             setSubmitting(false);
-            props.onFetchMovies(res);
+            
             props.onLoadingStatusChange(false);
-            //setFindMovies("");
             props.setFindMovies(inputText);
-            localStorage.setItem('movies', JSON.stringify(res));
+                props.onFetchMovies(res);
+                  localStorage.setItem('movies', JSON.stringify(res)); 
             localStorage.setItem('input', inputText);
             localStorage.setItem('checkbox', props.checkbox);
-           
-           console.log('submit 1');
         }).catch(e => {
             setSubmitting(false);
             props.onLoadingStatusChange(false);
             props.setErrorMovies(true);
             props.setErrorMoviesText('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
         })
+
+        } else {
+            props.setFindMovies(inputText);
+            localStorage.setItem('input', inputText);
+            localStorage.setItem('checkbox', props.checkbox);
+            setSubmitting(false);
+            props.onLoadingStatusChange(false);
+        }
     }
 
     React.useEffect(() => {
@@ -74,11 +73,9 @@ function SearchForm(props) {
         props.setFindMovies(localStorage.getItem('input'));
     }, []);
 
-    // handleSearchMovie
-
-    const handleInputText = /*useCallback(*/(ev) => {
+    const handleInputText = (ev) => {
         setInputText(ev.target.value)
-    }/*, [setInputText]);*/
+    }
 
     return (
         <section className="search-form">

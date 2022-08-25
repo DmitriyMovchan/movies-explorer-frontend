@@ -1,6 +1,5 @@
 import React from "react";
 import './Register.css';
-import { Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
 
 function Register(props) {
@@ -68,12 +67,10 @@ function Register(props) {
 
     return (
         <section className="registration">
-
                 <a className="registration__link" href={'/'}>
                     <img className="registration__logo" src={logo} alt="logo"></img>
                 </a>
                 <h2 className="registration__text">Добро пожаловать!</h2>
-
                 <form className="form" onSubmit={handleSubmit}>
                         <label className="form__item">
                             <p className="form__item_name">Имя</p>

@@ -25,9 +25,6 @@ function MoviesCard(card) {
             nameEN: card.card.nameEN,
             thumbnail:  `https://api.nomoreparties.co/${card.card.image.formats.thumbnail.url}`,
             movieId: card.card.id,})
-        
-        //card.isLiked(card.card);
-        console.log(card)
         setIsSaved(!isSaved);
     }
 
