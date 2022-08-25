@@ -10,3 +10,4 @@
 4. React.
 
 ## [Ссылка на проект бэкенда GitHub](https://api.movies.movchan.nomoredomains.xyz)
+## [Ссылка на пул реквест](https://github.com/DmitriyMovchan/movies-explorer-frontend/pull/2)
