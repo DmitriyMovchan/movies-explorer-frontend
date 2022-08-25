@@ -11,9 +11,6 @@ import AboutMe from '../AboutMe/AboutMe';
 function Main(props) {
     return (
         <>
-        <Header
-            email={'Регистрация'}
-        ></Header>
         <Promo />
         <AboutProject />
         <Techs />

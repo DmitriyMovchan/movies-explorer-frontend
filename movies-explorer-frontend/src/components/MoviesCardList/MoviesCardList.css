@@ -13,7 +13,7 @@
     row-gap: 38px;
     column-gap: 20px;
     align-self: center;
-    margin: 70px 0 30px 0;
+    margin: 70px auto 30px;
 }
 
 .card-list__more {
@@ -32,6 +32,10 @@
 
 .card-list__more:hover {
     opacity: .8;
+}
+
+.cards-list__text {
+    margin: 0 auto o;
 }
 
 @media screen and (max-width: 1139px) {

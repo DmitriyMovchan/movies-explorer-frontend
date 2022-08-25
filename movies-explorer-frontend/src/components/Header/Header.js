@@ -5,34 +5,37 @@ import logoMovies from "../../images/logo-2.svg";
 import { Route } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 
-function Header({ email }) {
+function Header({ email, loggedIn }) {
   return (
     
     <header className="header">
-      <Route path="/" exact>
+      { loggedIn ? (
+              <Route path={[ "/movies", "/saved-movies", "/profile", "/"]}>
+              <div className="header__main header__main_movies">
+              <a href="/">
+                <img className="header__logo header__logo_movies" src={logoMain} alt="логотип" href="/"></img></a>
+              {//<Route path={[ "/movies", "/saved-movies" ]}>
+               // <a href="/">
+               //   <img className="header__logo header__logo_movies" src={logoMain} alt="логотип"></img></a>
+               // </Route>
+              }
+              
+                  <Navigation />
+                  </div>
+            </Route>
+      ) : (
         <div className="header__main"><a href="/">
-          <img className="header__logo" src={logoMain} alt="логотип" href="/"></img></a>
-          <div>
-            <div className="header__menu-block">
-              <a className="header__menu-block_register" href="signup">{email}</a>
-              <a className="header__menu-block_in" href="signin">Войти</a>
-              </div>
-           </div>
-          </div>
-        </Route>
+        <img className="header__logo" src={logoMain} alt="логотип" href="/"></img></a>
+        <div>
+          <div className="header__menu-block">
+            <a className="header__menu-block_register" href="signup">{email}</a>
+            <a className="header__menu-block_in" href="signin">Войти</a>
+            </div>
+         </div>
+        </div>
+      )}
 
-        <Route path={[ "/movies", "/saved-movies", "/profile"]}>
-          <div className="header__main header__main_movies">
-            <Route path={[ "/movies", "/saved-movies" ]}>
-            <a href="/">
-              <img className="header__logo header__logo_movies" src={logoMain} alt="логотип"></img></a>
-            </Route>
-            <Route path="/profile">
-              <img className="header__logo header__logo_profile" src={logoMovies} alt="логотип"></img>
-            </Route>
-              <Navigation />
-              </div>
-        </Route>
+  
     </header>
   )
 }
