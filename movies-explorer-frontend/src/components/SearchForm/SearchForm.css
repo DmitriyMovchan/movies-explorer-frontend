@@ -156,8 +156,6 @@
 
 .search-form__error {
     color: red;
-    position: absolute;
-    bottom: 0;
     left: 70px;
 }
 

@@ -46,6 +46,7 @@ export const getContent = (token) => {
 }
 
 export const getSavedMovies = () => {
+    console.log('getSavedMovies')
     return fetch(`${BASE_URL}/movies`, {
         method: 'GET',
         headers: {
@@ -54,7 +55,11 @@ export const getSavedMovies = () => {
             'Authorization': `Bearer ${localStorage.getItem('token')}`,
         }
     })
-    .then((res) => checkResponse(res))
+    .then((res) => {
+        console.log('res = ', res)
+        return checkResponse(res)
+       
+    })
 }
 
 export const deleteMovies = (id) => {

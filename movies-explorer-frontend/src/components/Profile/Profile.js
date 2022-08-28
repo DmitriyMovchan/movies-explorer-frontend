@@ -58,7 +58,7 @@ function Profile(props) {
                 <p className="profile__text">E-mail</p>
                 <input className="profile__email" value={email} onChange={handleEmailChange} placeholder={'email'} type="text" id="input__email"></input>
             </div>
-            <p className={visibleButton ? "profile__edit" : "profile__edit_disabled"} onClick={handleSubmit} disabled={!visibleButton}>Редактировать</p>
+            <p className={visibleButton ? "profile__edit" : "profile__edit_disabled"} onClick={visibleButton ? handleSubmit : undefined}>Редактировать</p>
             {successfully ? <span className="profile__edit_successfully">Данные успешно изменены</span> : <span className="profile__edit_error">{error}</span>}
             <p className="profile__exit" onClick={props.handleSignOut}>Выйти из аккаунта</p>
         </section>

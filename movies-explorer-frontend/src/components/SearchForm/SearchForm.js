@@ -42,9 +42,9 @@ function SearchForm(props) {
             props.onLoadingStatusChange(false);
             props.setFindMovies(inputText);
                 props.onFetchMovies(res);
-                  localStorage.setItem('movies', JSON.stringify(res)); 
-            localStorage.setItem('input', inputText);
-            localStorage.setItem('checkbox', props.checkbox);
+                    localStorage.setItem('movies', JSON.stringify(res)); 
+                    localStorage.setItem('input', inputText);
+                    localStorage.setItem('checkbox', props.checkbox);
         }).catch(e => {
             setSubmitting(false);
             props.onLoadingStatusChange(false);
@@ -54,7 +54,7 @@ function SearchForm(props) {
 
         } else {
             props.setFindMovies(inputText);
-            localStorage.setItem('input', inputText);
+            // localStorage.setItem('inputSave', inputText);
             localStorage.setItem('checkbox', props.checkbox);
             setSubmitting(false);
             props.onLoadingStatusChange(false);
@@ -69,9 +69,6 @@ function SearchForm(props) {
         }
     }, [props.findedMovies, error])
 
-    React.useEffect(() => {
-        props.setFindMovies(localStorage.getItem('input'));
-    }, []);
 
     const handleInputText = (ev) => {
         setInputText(ev.target.value)
@@ -91,6 +88,8 @@ function SearchForm(props) {
                             onChange={handleInputText}
                         />
                         <span className="search-form__error">{error}</span>
+
+
                     </div>
                     
                     <button 

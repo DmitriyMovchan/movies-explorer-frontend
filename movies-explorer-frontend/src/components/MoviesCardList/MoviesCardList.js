@@ -28,7 +28,7 @@ function MoviesCardList(props) {
     }
 
     const [visibleMovies, setVisibleMovies] = React.useState(getInitialCounts(width));
-
+    console.log(props.cards)
     // ф-я показать еще фильмы
     const handleLoadMore = () => {
         setVisibleMovies((prevCount) => prevCount + getLoadStepMovies(width));

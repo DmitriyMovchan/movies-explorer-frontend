@@ -27,11 +27,18 @@ function App() {
     const [textErrLog, setTextErrLog] = React.useState("");
     const [checkbox, setCheckbox] = React.useState(false);
     const [findedMovies, setFindMovies] = React.useState("");
-    console.log(findedMovies)
+    const [saveFindedMovies, setSaveFindedMovies] = React.useState("")
 
     React.useEffect(() => {
         setCheckbox(localStorage.getItem('checkbox') === 'true');
+        setFindMovies(localStorage.getItem('input'));
+        setSaveFindedMovies(localStorage.getItem('inputSave'));
     }, []);
+
+    
+    // React.useEffect(() => {
+    //     setFindMovies(localStorage.getItem('input'));
+    // }, [findedMovies]);
 
     const handleCheckbox = (value) => {
         setCheckbox(value);
@@ -71,11 +78,12 @@ function App() {
                     return;
                 }
                 localStorage.setItem('token', data.token);
-                setCurrentUser({
-                    email,
-                });
-                setLoggedIn(true);
-                history.push('/movies');
+
+                getContent(data.token).then((res) => {
+                    setCurrentUser(res);
+                    setLoggedIn(true);
+                    history.push('/movies');
+                })
             })
             .catch((err) => console.log(err))
     }
@@ -96,10 +104,13 @@ function App() {
     }, []);
 
     React.useEffect(() => {
+        if (!loggedIn) {
+            return
+        }
         getSavedMovies().then(response => {
-            setSavedMovies(response);
+            setSavedMovies(response.filter(x => x.owner === currentUser._id));
         });
-    }, []);
+    }, [currentUser._id]);
 
     const onFetchMovies = (movies) => {
         setMovies(movies);
@@ -115,7 +126,8 @@ function App() {
                 if (res){
                     setCurrentUser({
                         email: res.email,
-                        name: res.name
+                        name: res.name,
+                        _id: res._id
                     });
                     setLoggedIn(true);
                 }
@@ -157,6 +169,10 @@ function App() {
     // ф-я логаута
     const handleSignOut = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('movies');
+        localStorage.removeItem('input');
+        localStorage.removeItem('checkbox');
+        localStorage.removeItem('inputSave')
         setLoggedIn(false);
         history.push('/')
     }
@@ -177,14 +193,14 @@ function App() {
         })
         }
 
-   function myFilterFn(card) {
+   function myFilterFn(card, searchText) {
     let res = true;
     if (checkbox) res = res && card.duration <= 40;
-    if (findedMovies && findedMovies.trim()) res = res && card.nameRU.toLowerCase().includes(findedMovies.toLowerCase());
+    if (searchText && searchText.trim()) res = res && card.nameRU.toLowerCase().includes(searchText.toLowerCase());
     return res;
    }
-    const filteredMovies = movies.filter(x => myFilterFn(x));
-    const  filteredSavedMovies = savedMovies.filter(x => myFilterFn(x));
+    const filteredMovies = movies.filter(x => myFilterFn(x, findedMovies));
+    const  filteredSavedMovies = savedMovies ? savedMovies.filter(x => myFilterFn(x, saveFindedMovies)) : [];
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
@@ -214,7 +230,6 @@ function App() {
                 handleCheckbox={handleCheckbox}
                 findedMovies={findedMovies}
                 setFindMovies={setFindMovies}
-
             />
         </ProtectedRoute>
             
@@ -225,8 +240,8 @@ function App() {
                 savedMovies={savedMovies}
                 checkbox={checkbox}
                 handleCheckbox={handleCheckbox}
-                findedMovies={findedMovies}
-                setFindMovies={setFindMovies}
+                findedMovies={saveFindedMovies}
+                setFindMovies={setSaveFindedMovies}
                 onLoadingStatusChange={(value) => {setIsCardsLoading(value)}}
                 isLoading={isCardsLoaning}
             />

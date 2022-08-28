@@ -1,15 +1,19 @@
 import React from "react";
 import "./MoviesCard.css";
 import { useLocation } from 'react-router-dom';
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function MoviesCard(card) {
     const location = useLocation();
     const [isSaved, setIsSaved] = React.useState(false);
     let isMoviesLiked = true;
+    const currentUser = React.useContext(CurrentUserContext);
+
     
     if (location.pathname==='/movies') {
+        console.log('debug');
         if (card.card && card.card.id && card.savedMovies) 
-            isMoviesLiked = card.savedMovies.map((i)=>i.movieId).includes(card.card.id)
+            isMoviesLiked = card.savedMovies.filter(x => x.owner === currentUser._id) .map((i)=>i.movieId).includes(card.card.id);
     }
     
 
@@ -36,12 +40,22 @@ function MoviesCard(card) {
         card.deleteMovieCard(card.savedMovies.find((i) => i.movieId===card.card.id))
     }
 
+    function convertHoursAndMinutes() {
+        const minutes = card.card.duration % 60;
+        const hours = Math.floor(card.card.duration / 60);
+
+        if (hours === 0) {
+            return `${card.card.duration} м`
+        }
+        return `${hours}ч ${minutes}м`;
+    }
+
     return (
-        <section className="card" key={card.card.id || card.card.movieId}>
+        <section className="card">
             <div className="card__description">
                 <div className="card__info">
                     <p className="card__info_text">{card.card.nameRU}</p>
-                    <p className="card__info_time">{card.card.duration} мин</p>
+                    <p className="card__info_time">{convertHoursAndMinutes()}</p>
                 </div>
                 {location.pathname === "/saved-movies" && 
                     <button className="card__description_like_delete" onClick={handleDelete} type="submit"></button>}
